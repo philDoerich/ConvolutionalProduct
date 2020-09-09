@@ -1,6 +1,6 @@
 package polynomial;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Polynomial {
@@ -16,15 +16,11 @@ public class Polynomial {
 	}
 	
 	public static Polynomial buildZeroPolynomial() {
-		ArrayList<Double> zeroList = new ArrayList<>();
-		zeroList.add(Double.valueOf(0));
-		return new Polynomial(zeroList);
+		return new Polynomial(Collections.unmodifiableList(Collections.singletonList(Double.valueOf(0))));
 	}
 	
 	public static Polynomial buildConstantPolynomial(double c) {
-		ArrayList<Double> constantList = new ArrayList<>();
-		constantList.add(c);
-		return new Polynomial(constantList); 
+		return new Polynomial(Collections.unmodifiableList(Collections.singletonList(Double.valueOf(c)))); 
 	}
 	
 	public List<Double> getCoefficients(){
